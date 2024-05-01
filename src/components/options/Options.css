@@ -1,5 +1,5 @@
 .options {
-  width: 18rem;
+  width: 16rem;
   height: 21rem;
   background-color: #fff;
   color: rgba(104, 103, 103, 0.88);
@@ -21,7 +21,7 @@
 }
 
 .options_currency_button {
-  width: 100px;
+  width: 90px;
   height: 50px;
   color: rgb(36, 71, 214);
   border: 1px solid rgb(36, 71, 214);
@@ -53,6 +53,8 @@
   margin-top: 10px;
   font-size: 16px;
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
 }
 
 .options_transfers_title {
@@ -117,12 +119,10 @@
   transform: translate(-50%, -50%) scale(1);
 }
 
-.options_transfers_form-group::after {
-  content: "только";
-  display: inline-block;
-  width: 50px;
-  height: 25px;
-  position: absolute;
-  right: 20px;
+.options_transfers_form-group p {
+  width: 60px;
+  height: 20px;
   color: rgb(36, 71, 214);
+  margin: 0;
+  padding: 0;
 }

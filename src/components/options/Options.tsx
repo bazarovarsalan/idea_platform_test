@@ -21,7 +21,7 @@ const Options = () => {
   const transitionsHandleChange = (event: any) => {
     const { name } = event.target;
     const { checked } = event.target;
-    console.log(name, checked);
+    console.log(event);
 
     if (name === "Все") {
       if (checked) {
@@ -118,6 +118,7 @@ const Options = () => {
             <span className="custom-checkbox"></span>
             Без пересадок
           </label>
+          <p>только</p>
         </div>
         <div
           className="options_transfers_form-group"
@@ -132,6 +133,7 @@ const Options = () => {
             />
             <span className="custom-checkbox"></span>1 пересадка
           </label>
+          <p>только</p>
         </div>
         <div
           className="options_transfers_form-group"
@@ -146,6 +148,7 @@ const Options = () => {
             />
             <span className="custom-checkbox"></span>2 пересадки
           </label>
+          <p>только</p>
         </div>
         <div
           className="options_transfers_form-group"
@@ -160,6 +163,7 @@ const Options = () => {
             />
             <span className="custom-checkbox"></span>3 пересадки
           </label>
+          <p>только</p>
         </div>
       </div>
     </div>
