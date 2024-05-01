@@ -13,9 +13,11 @@ export interface ITickets {
 }
 
 export interface ITransitions {
-  all: boolean;
-  0: boolean;
-  1: boolean;
-  2: boolean;
-  3: boolean;
+  Все: boolean;
+  "Без пересадок": boolean;
+  "1 пересадка": boolean;
+  "2 пересадки": boolean;
+  "3 пересадки": boolean;
 }
+
+export type Currency = "RUB" | "USD" | "EUR";

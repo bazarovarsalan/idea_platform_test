@@ -1,21 +1,20 @@
+import { url } from "inspector";
 import { useState } from "react";
 import "./App.css";
 import data from "./data/tickets.json";
-import { ITickets, ITransitions } from "./types/types";
+import { ITickets } from "./types/types";
+import Options from "./components/options/Options";
+import Logo from "./components/logo/Logo";
 
 function App() {
   const [tickets, setTickets] = useState<ITickets[]>(data.tickets);
-  const [transitions, useTransitions] = useState<ITransitions>({
-    all: false,
-    0: false,
-    1: false,
-    2: false,
-    3: false,
-  });
 
   return (
     <div className="App">
-      <p>asd</p>
+      <Logo />
+      <div className="container">
+        <Options />
+      </div>
     </div>
   );
 }
