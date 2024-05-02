@@ -4,6 +4,7 @@
   background-color: #fff;
   color: rgba(104, 103, 103, 0.88);
   padding: 0 12px;
+  border-radius: 10px;
 }
 
 .options_currency_title {
@@ -75,7 +76,9 @@
 .options_transfers_form-group label {
   cursor: pointer;
   user-select: none;
+  width: 100%;
 }
+
 .real-checkbox {
   width: 0;
   height: 0;
@@ -119,10 +122,19 @@
   transform: translate(-50%, -50%) scale(1);
 }
 
-.options_transfers_form-group p {
+.options_transfers_btn_only {
+  display: none;
   width: 60px;
   height: 20px;
   color: rgb(36, 71, 214);
   margin: 0;
   padding: 0;
+  border: 0;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.options_transfers_form-group label:hover + .options_transfers_btn_only,
+.options_transfers_btn_only:hover {
+  display: inline-block;
 }
