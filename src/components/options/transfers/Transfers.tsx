@@ -13,7 +13,9 @@ const Transfers = () => {
   ) => {
     const { name } = event.target as HTMLInputElement;
     const { checked } = event.target as HTMLInputElement;
-    dispatch(markTransfer({ name: name as Transfer, checked: checked }));
+    if (name) {
+      dispatch(markTransfer({ name: name as Transfer, checked: checked }));
+    }
   };
 
   const markOneTransferHandler = (

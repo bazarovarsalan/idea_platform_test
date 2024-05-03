@@ -1,0 +1,84 @@
+.ticketsList_container {
+  width: 37rem;
+  min-height: 30rem;
+  margin-left: 2rem;
+}
+
+.ticket-card {
+  margin-bottom: 2rem;
+  width: 100%;
+  height: 9rem;
+  border-radius: 10px;
+  background-color: #fff;
+  display: flex;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.ticket-card_left {
+  background-color: #fff;
+  width: 30%;
+  border-right: 2px solid #f3f7fa;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  position: relative;
+}
+
+.ticket-card_right {
+  background-color: #fff;
+  width: 70%;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+.ticket-card_left_img {
+  width: 70%;
+  height: 40%;
+  object-fit: contain;
+  position: absolute;
+  top: 8px;
+}
+
+.ticket-card_left_button {
+  width: 80%;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: #fa8e0a;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  position: absolute;
+  top: 73px;
+}
+
+.ticket-card_left_button:hover {
+  background-color: #f6b05a;
+}
+
+.ticket-card_right_time {
+  font-size: 30px;
+  color: #606060;
+  margin: 8px 0 0 0;
+}
+
+.ticket-card_right_city {
+  margin: 0;
+  padding-top: 3px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #606060;
+}
+
+.ticket-card_right_date {
+  margin: 0;
+  padding-top: 2px;
+  color: #858282;
+  font-size: 12px;
+}

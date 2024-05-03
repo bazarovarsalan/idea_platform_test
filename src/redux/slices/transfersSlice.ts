@@ -32,7 +32,7 @@ interface IPayloadMarkTransfer {
 type IPayloadMarkOne = Pick<IPayloadMarkTransfer, "name">;
 
 const transfersSlice = createSlice({
-  name: "currency",
+  name: "transfers",
   initialState,
   reducers: {
     markTransfer: (state, action: PayloadAction<IPayloadMarkTransfer>) => {
