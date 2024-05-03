@@ -34,28 +34,39 @@ const ticketsSlice = createSlice({
       let result: ITicket[] = [];
 
       for (const transfer of action.payload) {
-        switch (transfer) {
-          case "Все":
-            result = data.tickets;
-            return;
-          case "Без пересадок":
-            result.push(...data.tickets.filter((ticket) => ticket.stops === 0));
-            break;
+        if (transfer === "Все") {
+          result = [...data.tickets];
+          result.sort((a, b) => a.stops - b.stops);
+          state.tickets = result;
+          return;
+        } else {
+          switch (transfer) {
+            case "Без пересадок":
+              result.push(
+                ...data.tickets.filter((ticket) => ticket.stops === 0)
+              );
+              break;
 
-          case "1 пересадка":
-            result.push(...data.tickets.filter((ticket) => ticket.stops === 1));
-            break;
+            case "1 пересадка":
+              result.push(
+                ...data.tickets.filter((ticket) => ticket.stops === 1)
+              );
+              break;
 
-          case "2 пересадки":
-            result.push(...data.tickets.filter((ticket) => ticket.stops === 2));
-            break;
+            case "2 пересадки":
+              result.push(
+                ...data.tickets.filter((ticket) => ticket.stops === 2)
+              );
+              break;
 
-          case "3 пересадки":
-            result.push(...data.tickets.filter((ticket) => ticket.stops === 2));
-            break;
+            case "3 пересадки":
+              result.push(
+                ...data.tickets.filter((ticket) => ticket.stops === 3)
+              );
+              break;
+          }
         }
       }
-      console.log(result);
       result.sort((a, b) => a.stops - b.stops);
 
       state.tickets = result;

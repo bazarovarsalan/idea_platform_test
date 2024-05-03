@@ -3,6 +3,7 @@ import Ticket from "./ticket/Ticket";
 import { useEffect } from "react";
 import { ITransfers } from "../../redux/slices/transfersSlice";
 import { filterTickets } from "../../redux/slices/ticketsSlice";
+import { createId } from "../../../src/lib/generateId";
 
 const TicketsList = () => {
   const dispatch = useAppDispatch();
@@ -23,12 +24,7 @@ const TicketsList = () => {
   return (
     <div className="ticketsList_container">
       {tickets.map((ticket) => {
-        return (
-          <Ticket
-            key={`${ticket.arrival_time} + ${ticket.departure_time} + ${ticket.origin}`}
-            ticket={ticket}
-          />
-        );
+        return <Ticket key={createId()} ticket={ticket} />;
       })}
     </div>
   );

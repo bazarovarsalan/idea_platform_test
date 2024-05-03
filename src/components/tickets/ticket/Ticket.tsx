@@ -1,13 +1,13 @@
 import "./TicketsList.css";
-import ticketsSlice, { ITicket } from "../../../redux/slices/ticketsSlice";
+import { ITicket } from "../../../redux/slices/ticketsSlice";
 import { logos, ILogos } from "../../../lib/logos";
 import { convertDate } from "../../../lib/convertDate";
+import { wordHelper } from "../../../lib/wordHelper";
+import traceImg from "../../../assets/images/trace_airplane.png";
 
 interface TicketProps {
   ticket: ITicket;
 }
-
-console.log(logos);
 
 const Ticket = ({ ticket }: TicketProps) => {
   return (
@@ -30,6 +30,18 @@ const Ticket = ({ ticket }: TicketProps) => {
           <p className="ticket-card_right_date">
             {convertDate(ticket.arrival_date)}
           </p>
+        </div>
+        <div className="ticket-card_right_transfer">
+          <h3 className="ticket-card_right_transfer_quantity">
+            {wordHelper(ticket.stops)}
+          </h3>
+          <div className="ticket-card_right_transfer_trace_img_container">
+            <img
+              className="ticket-card_right_transfer_trace_img"
+              src={traceImg}
+              alt="trace"
+            />
+          </div>
         </div>
         <div className="ticket-card_right_arrival-info">
           <h3 className="ticket-card_right_time">{ticket.arrival_time}</h3>
