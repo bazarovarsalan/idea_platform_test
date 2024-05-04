@@ -4,12 +4,18 @@ import { logos, ILogos } from "../../../lib/logos";
 import { convertDate } from "../../../lib/convertDate";
 import { wordHelper } from "../../../lib/wordHelper";
 import traceImg from "../../../assets/images/trace_airplane.png";
+import useCurrencyRate from "../../../lib/useCurrencyRate";
+import { TCurrency } from "../../../redux/slices/currencySlice";
+import { useAppSelector } from "../../../redux/hooks";
 
 interface TicketProps {
   ticket: ITicket;
 }
 
 const Ticket = ({ ticket }: TicketProps) => {
+  const rateExchange = useCurrencyRate(ticket.price); // this custom hook gets current rate from Central bank of Russia and returs right necessary format
+  const currency = useAppSelector((state) => state.currency.currency);
+
   return (
     <div className="ticket-card">
       <div className="ticket-card_left">
@@ -18,7 +24,7 @@ const Ticket = ({ ticket }: TicketProps) => {
           src={logos[ticket.carrier as keyof ILogos]}
         />
         <button className="ticket-card_left_button">
-          Купить <br /> за {ticket.price}р.
+          Купить <br /> за {rateExchange && rateExchange[currency as TCurrency]}
         </button>
       </div>
       <div className="ticket-card_right">
