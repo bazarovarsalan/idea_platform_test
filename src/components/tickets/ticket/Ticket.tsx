@@ -1,18 +1,19 @@
-import "./TicketsList.css";
-import { ITicket } from "../../../redux/slices/ticketsSlice";
-import { logos, ILogos } from "../../../lib/logos";
-import { convertDate } from "../../../lib/convertDate";
-import { wordHelper } from "../../../lib/wordHelper";
-import traceImg from "../../../assets/images/trace_airplane.png";
-import useCurrencyRate from "../../../lib/useCurrencyRate";
-import { TCurrency } from "../../../redux/slices/currencySlice";
-import { useAppSelector } from "../../../redux/hooks";
+import '../TicketsList.css';
+import { ITicket } from '../../../redux/slices/ticketsSlice';
+import { logos, ILogos } from '../../../lib/logos';
+import { convertDate } from '../../../lib/convertDate';
+import { wordHelper } from '../../../lib/wordHelper';
+import traceImg from '../../../assets/images/trace_airplane.png';
+import useCurrencyRate from '../../../lib/useCurrencyRate';
+import { TCurrency } from '../../../redux/slices/currencySlice';
+import { useAppSelector } from '../../../redux/hooks';
+import { memo } from 'react';
 
 interface TicketProps {
   ticket: ITicket;
 }
 
-const Ticket = ({ ticket }: TicketProps) => {
+const Ticket = memo(({ ticket }: TicketProps) => {
   const rateExchange = useCurrencyRate(ticket.price); // this custom hook gets current rate from Central bank of Russia and returs right necessary format
   const currency = useAppSelector((state) => state.currency.currency);
 
@@ -22,8 +23,12 @@ const Ticket = ({ ticket }: TicketProps) => {
         <img
           className="ticket-card_left_img"
           src={logos[ticket.carrier as keyof ILogos]}
+          alt="carrier logo"
         />
-        <button className="ticket-card_left_button">
+        <button
+          className="ticket-card_left_button"
+          onClick={() => alert(' Congratulations! You have bought a ticket')}
+        >
           Купить <br /> за {rateExchange && rateExchange[currency as TCurrency]}
         </button>
       </div>
@@ -61,6 +66,6 @@ const Ticket = ({ ticket }: TicketProps) => {
       </div>
     </div>
   );
-};
+});
 
 export default Ticket;

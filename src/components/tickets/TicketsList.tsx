@@ -1,9 +1,9 @@
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import Ticket from "./ticket/Ticket";
-import { useEffect } from "react";
-import { ITransfers } from "../../redux/slices/transfersSlice";
-import { filterTickets } from "../../redux/slices/ticketsSlice";
-import { createId } from "../../../src/lib/generateId";
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import Ticket from './ticket/Ticket';
+import { useEffect } from 'react';
+import { ITransfers } from '../../redux/slices/transfersSlice';
+import { filterTickets } from '../../redux/slices/ticketsSlice';
+import { createId } from '../../../src/lib/generateId';
 
 const TicketsList = () => {
   const dispatch = useAppDispatch();
@@ -20,7 +20,7 @@ const TicketsList = () => {
     }
 
     dispatch(filterTickets(markedTransfers));
-  }, [transfers]);
+  }, [transfers, dispatch]);
   return (
     <div className="ticketsList_container">
       {tickets.map((ticket) => {

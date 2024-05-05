@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
+import { numberWithSpaces } from '../lib/numberWithSpaces';
 
 interface ICurrency {
   ID: string;
@@ -26,10 +27,10 @@ const useCurrencyRate = (price: number) => {
 
   const exchangeRate = async () => {
     const response = await fetch(
-      `https://www.cbr-xml-daily.ru/daily_json.js` // getting current rate from Central bank of Russia
+      `https://www.cbr-xml-daily.ru/daily_json.js`, // getting current rate from Central bank of Russia
     );
     if (!response.ok) {
-      throw new Error("HTTP error, status = " + response.status);
+      throw new Error('HTTP error, status = ' + response.status);
     }
 
     const data = await response.json();
@@ -44,11 +45,13 @@ const useCurrencyRate = (price: number) => {
 
   useEffect(() => {
     setCurrencies({
-      RUB: `${price}₽.`,
-      USD: rates && `${Math.floor(price / rates?.USD.Value)}$`,
-      EUR: rates && `${Math.floor(price / rates?.EUR.Value)}€`,
+      RUB: `${numberWithSpaces(price)}₽.`,
+      USD:
+        rates && `${numberWithSpaces(Math.floor(price / rates?.USD.Value))}$`,
+      EUR:
+        rates && `${numberWithSpaces(Math.floor(price / rates?.EUR.Value))}€`,
     });
-  }, [rates]);
+  }, [rates, price]);
 
   return currencies;
 };

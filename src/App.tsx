@@ -1,7 +1,7 @@
-import "./App.css";
-import Options from "./components/options/Options";
-import Logo from "./components/logo/Logo";
-import TicketsList from "./components/tickets/TicketsList";
+import './App.css';
+import Options from './components/options/Options';
+import Logo from './components/logo/Logo';
+import TicketsList from './components/tickets/TicketsList';
 
 function App() {
   return (

@@ -1,8 +1,9 @@
-import { TCurrency } from "../../../redux/slices/currencySlice";
-import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
-import { changeCurrency } from "../../../redux/slices/currencySlice";
+import { TCurrency } from '../../../redux/slices/currencySlice';
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
+import { changeCurrency } from '../../../redux/slices/currencySlice';
+import { memo } from 'react';
 
-const Currency = () => {
+const Currency = memo(() => {
   const dispatch = useAppDispatch();
   const currentCurrency = useAppSelector((state) => state.currency.currency);
   const onClick = (event: React.MouseEvent<EventTarget>) => {
@@ -16,9 +17,9 @@ const Currency = () => {
       <div className="options_currency_buttons-wrapper">
         <button
           className={
-            currentCurrency === "RUB"
-              ? "options_currency_button active"
-              : "options_currency_button"
+            currentCurrency === 'RUB'
+              ? 'options_currency_button active'
+              : 'options_currency_button'
           }
           onClick={onClick}
         >
@@ -26,9 +27,9 @@ const Currency = () => {
         </button>
         <button
           className={
-            currentCurrency === "USD"
-              ? "options_currency_button active"
-              : "options_currency_button"
+            currentCurrency === 'USD'
+              ? 'options_currency_button active'
+              : 'options_currency_button'
           }
           onClick={onClick}
         >
@@ -36,9 +37,9 @@ const Currency = () => {
         </button>
         <button
           className={
-            currentCurrency === "EUR"
-              ? "options_currency_button active"
-              : "options_currency_button"
+            currentCurrency === 'EUR'
+              ? 'options_currency_button active'
+              : 'options_currency_button'
           }
           onClick={onClick}
         >
@@ -47,6 +48,6 @@ const Currency = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Currency;
