@@ -1,6 +1,6 @@
-import "./Options.css";
-import Currency from "./currency/Currency";
-import Transfers from "./transfers/Transfers";
+import './Options.css';
+import Currency from './currency/Currency';
+import Transfers from './transfers/Transfers';
 
 const Options = () => {
   return (
