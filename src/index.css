@@ -4,4 +4,6 @@ html {
   padding: 0;
   box-sizing: border-box;
   background-color: #f3f7fa;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }

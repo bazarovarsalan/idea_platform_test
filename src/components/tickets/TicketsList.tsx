@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { ITransfers } from '../../redux/slices/transfersSlice';
 import { filterTickets } from '../../redux/slices/ticketsSlice';
 import { createId } from '../../../src/lib/generateId';
+import { markTransfer } from '../../redux/slices/transfersSlice';
 
 const TicketsList = () => {
   const dispatch = useAppDispatch();
@@ -20,6 +21,10 @@ const TicketsList = () => {
     }
 
     dispatch(filterTickets(markedTransfers));
+
+    if (markedTransfers.length === 4 && !markedTransfers.includes('Все')) {
+      dispatch(markTransfer({ name: 'Все', checked: true }));
+    }
   }, [transfers, dispatch]);
   return (
     <div className="ticketsList_container">

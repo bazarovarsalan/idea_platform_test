@@ -47,9 +47,9 @@ const useCurrencyRate = (price: number) => {
     setCurrencies({
       RUB: `${numberWithSpaces(price)}₽.`,
       USD:
-        rates && `${numberWithSpaces(Math.floor(price / rates?.USD.Value))}$`,
+        rates && `$${numberWithSpaces(Math.floor(price / rates?.USD.Value))}`,
       EUR:
-        rates && `${numberWithSpaces(Math.floor(price / rates?.EUR.Value))}€`,
+        rates && `€${numberWithSpaces(Math.floor(price / rates?.EUR.Value))}`,
     });
   }, [rates, price]);
 

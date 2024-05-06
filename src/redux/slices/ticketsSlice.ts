@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import data from "../../data/tickets.json";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import data from '../../data/tickets.json';
 
 export interface ITicket {
   arrival_date: string;
@@ -24,44 +24,41 @@ const initialState: TicketsState = {
 };
 
 const ticketsSlice = createSlice({
-  name: "tickets",
+  name: 'tickets',
   initialState,
   reducers: {
-    resetTickets: (state) => {
-      state.tickets = data.tickets;
-    },
     filterTickets: (state, action: PayloadAction<string[]>) => {
       let result: ITicket[] = [];
 
       for (const transfer of action.payload) {
-        if (transfer === "Все") {
+        if (transfer === 'Все') {
           result = [...data.tickets];
           result.sort((a, b) => a.stops - b.stops);
           state.tickets = result;
           return;
         } else {
           switch (transfer) {
-            case "Без пересадок":
+            case 'Без пересадок':
               result.push(
-                ...data.tickets.filter((ticket) => ticket.stops === 0)
+                ...data.tickets.filter((ticket) => ticket.stops === 0),
               );
               break;
 
-            case "1 пересадка":
+            case '1 пересадка':
               result.push(
-                ...data.tickets.filter((ticket) => ticket.stops === 1)
+                ...data.tickets.filter((ticket) => ticket.stops === 1),
               );
               break;
 
-            case "2 пересадки":
+            case '2 пересадки':
               result.push(
-                ...data.tickets.filter((ticket) => ticket.stops === 2)
+                ...data.tickets.filter((ticket) => ticket.stops === 2),
               );
               break;
 
-            case "3 пересадки":
+            case '3 пересадки':
               result.push(
-                ...data.tickets.filter((ticket) => ticket.stops === 3)
+                ...data.tickets.filter((ticket) => ticket.stops === 3),
               );
               break;
           }
@@ -74,6 +71,6 @@ const ticketsSlice = createSlice({
   },
 });
 
-export const { resetTickets, filterTickets } = ticketsSlice.actions;
+export const { filterTickets } = ticketsSlice.actions;
 
 export default ticketsSlice.reducer;
