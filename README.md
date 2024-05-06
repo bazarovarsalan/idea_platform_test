@@ -16,6 +16,6 @@
 <h3 align='center'>Home Page 🏡</h3>
 
 <div align='center'>
-<img src="/public/idea-platform-test-lyart.vercel.app_.png"/>
+<img src="/public/idea-platform-test-lyart.vercel.app_ (1).png"/>
 
 </div>
